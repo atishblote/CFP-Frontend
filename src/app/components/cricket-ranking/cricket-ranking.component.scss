@@ -1,0 +1,43 @@
+.progress_div {
+    position: absolute;
+    top: 0;
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 9;
+    height: 100%;
+    background: #e4e4e4b3;
+    
+}
+table {
+    width: 100%;
+    background-color: white;
+    // border: 1px solid #e2e2e2; /* Adding a black border around the table */
+    border-collapse: collapse; /* Collapsing the borders to appear as a single border */
+    border-radius: 10px;
+    th, td {
+    //   border: 1px solid #e2e2e2; /* Adding borders to table cells */
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2; /* Adding a light gray background to table headers */
+    }
+    tr {
+        border-bottom: 1px solid rgb(183, 183, 183);
+    }
+  }
+  .iner_table_div {
+    border: 1px solid #c8c8c8;
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
+    margin-top: 10px;
+    .table_footer {
+        text-align: center;
+        padding: 12px;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,189 @@
+<div class="complete_predictions" style="position: relative;">
+    <div class="hero bg_image">
+        <img src="assets/img/previous-mach-result.jpg" alt="">
+        <!-- <h2>India vs Pakistan match 15 , 2023 Pune</h2> -->
+    </div>
+
+    <!-- main start -->
+    <div class="container">
+
+        <div *ngIf="notLoaded; else elseBlock" class="progress_div">
+            <mat-progress-spinner class="example-margin" color="warn" mode="indeterminate" diameter="41">
+            </mat-progress-spinner>
+        </div>
+        <ng-template #elseBlock>
+            <div class="row">
+                <div class="col_4 bg_border">
+                    <aside>
+                        <h5 class="side_title"><span class="material-symbols-outlined">
+                                info
+                            </span> Match Info</h5>
+                        <ng-container *ngIf="is_info; else elseBlock1">
+                            <div class="inner_block">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Match </td>
+                                            <td>: {{ getMatchInfo?.series?.name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Type </td>
+                                            <td>: {{ getMatchInfo?.matchDescription }} , {{ getMatchInfo?.matchFormat }}
+                                                {{
+                                                getMatchInfo?.matchType }} </td>
+                                        </tr>
+                                        <tr *ngIf="getMatchInfo?.tossResults?.tossWinnerName">
+                                            <td>Toss Win </td>
+                                            <td *ngIf="getMatchInfo?.tossResults?.tossWinnerName; else elseBlock">
+                                                : {{ getMatchInfo?.tossResults?.tossWinnerName }}
+                                            </td>
+                                            <ng-template #elseBlock>
+                                                <td>: Not Toss yet !</td>
+                                            </ng-template>
+                                        </tr>
+                                        <tr *ngIf="getMatchInfo?.tossResults?.tossWinnerName">
+                                            <td>Decision </td>
+                                            <td>: {{ getMatchInfo?.shortStatus }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Time </td>
+                                            <td>: {{ getMatchInfo?.matchStartTimestamp | timeStamp }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Venue </td>
+                                            <td>: {{ getMatchInfo?.venue?.name }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>City </td>
+                                            <td>: {{ getMatchInfo?.venue?.city }}, {{ getMatchInfo?.venue?.country }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Umpires </td>
+                                            <td>: {{ getMatchInfo?.umpire1?.name }}, {{ getMatchInfo?.umpire2?.name }}
+                                                ,{{
+                                                getMatchInfo?.umpire3?.name }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Referee </td>
+                                            <td>: {{ getMatchInfo?.referee?.name }} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </ng-container>
+                        <ng-template #elseBlock1>
+                            <p>{{message}}</p>
+                        </ng-template>
+                        <br>
+                        <h5 class="side_title"><span class="material-symbols-outlined">
+                                diversity_3
+                            </span> Player Info</h5>
+                        <div class="inner_block player_info" *ngIf="is_info; else elseBlock2">
+                            <mat-tab-group>
+                                <mat-tab label="{{ getMatchInfo?.team1?.name }}">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Role</th>
+                                                <th>Batting</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let payers of getMatchInfo?.team1?.playerDetails">
+                                                <td>{{ payers.fullName }} <sup class="captain"
+                                                        *ngIf="payers.captain">C</sup> <sup class="captain"
+                                                        *ngIf="payers.keeper">WK</sup></td>
+                                                <td>{{ payers.role }}</td>
+                                                <td>{{ payers.battingStyle }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </mat-tab>
+                                <mat-tab label="{{ getMatchInfo?.team2?.name }}">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Role</th>
+                                                <th>Batting</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let payers of getMatchInfo?.team2?.playerDetails">
+                                                <td>{{ payers.fullName }} <sup class="captain"
+                                                        *ngIf="payers.captain">C</sup> <sup class="captain"
+                                                        *ngIf="payers.keeper">WK</sup></td>
+                                                <td>{{ payers.role }}</td>
+                                                <td>{{ payers.battingStyle }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </mat-tab>
+                            </mat-tab-group>
+
+                        </div>
+                        <ng-template #elseBlock2>
+                            <p >{{message}}</p>
+                        </ng-template>
+                    </aside>
+                </div>
+
+                <div class="col_6 bg_border">
+                    <div class="match_info bg_light" style="height: 100%;">
+
+                        <div class="inner_block">
+                            <div class="match_info_head">
+                                {{ getAllMatchData?.name }}
+                            </div>
+                            <div class="d_f">
+                                <div>
+                                    <img width="67" src="https://admin.cricfootbook.com/{{ getAllMatchData?.team_one?.logo }}"
+                                        alt="">
+                                    <div>{{ getAllMatchData?.team_one?.team_name }}</div>
+                                </div>
+                                <div>
+                                    <span class="vs">VS</span>
+                                </div>
+                                <div>
+                                    <img width="67" src="https://admin.cricfootbook.com/{{ getAllMatchData?.team_two?.logo }}"
+                                        alt="">
+                                    <div> {{ getAllMatchData?.team_two?.team_name }}</div>
+                                </div>
+                            </div>
+                            <div class="match_info">
+                                <p class="status"><app-match-countdown
+                                        [matchStartTime]="getAllMatchData?.time_stam"></app-match-countdown></p>
+                                <p class="time">{{ getAllMatchData?.date_time}}</p>
+                                <p class="location">{{ getAllMatchData?.venues }}</p>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="inner_block">
+                            <div class="match_info_heads" style="text-align: center;">
+
+                                <h5 class="side_title"><span class="material-symbols-outlined">
+                                        package_2
+                                    </span> Buy Package</h5>
+                            </div>
+
+                            <app-buy-plan-all [getData]="putData"></app-buy-plan-all>
+                        </div>
+
+                        <blockquote>
+                            <h4>Disclamer</h4>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim perspiciatis ipsam suscipit
+                            sapiente dolorum, adipisci impedit commodi voluptatibus beatae aperiam vel qui illo ratione
+                            nam consectetur placeat vitae ipsum hic harum eligendi cum voluptas incidunt? Dolores,
+                            mollitia modi facere quo itaque dolore, fuga aliquam odit assumenda quidem, temporibus rerum
+                            asperiores?
+                        </blockquote>
+
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

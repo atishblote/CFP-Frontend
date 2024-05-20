@@ -1,0 +1,22 @@
+<div class="archied_blogs">
+    <div class="inner_blogs">
+        <ng-container *ngFor="let b of getPrediction">
+            <div class="row white_back">
+                <div class="col_4">
+                    <a href="#"><img src="https://admin.cricfootbook.com/{{ b.featured_id.media_media }}" alt=""></a>
+                </div>
+                <div class="col_6">
+                    <span class="category" style="margin-right: 5px;" *ngFor="let c of b.category_id">{{ c.name }} </span> &emsp;
+                    <div class="blog_title">
+                        <a href="#">{{ b.title }}</a>
+                    </div>
+                    <p class="expertd">{{ b.except }}</p>
+                    <div class="blog_footer">
+                        <span class="small_text">{{ b.date }}</span>
+                        <span><button class="accent_btn" (click)="navigate('single-blog',b._id,b.slug)">Read more </button></span>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

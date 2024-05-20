@@ -1,0 +1,74 @@
+
+@import 'src/app/global.scss';
+.inner_footer .row {
+    display: grid;
+    grid-template-columns: 30% 36% 30%;
+    column-gap: 24px;
+}
+.inner_footer{
+
+    h5 {
+        color: white;
+        font-size: 1.2rem;
+        margin: 0;
+        display: inline-block;
+    }
+    p {
+        color: #d6d6d6;
+        line-height: 1.5rem;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        /* display: flex; */
+    }
+    a {
+        display: flex;
+        column-gap: 8px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: #dbdbdb;
+
+        span{
+            color: $accent-color;
+        }
+    }
+    h5::after {
+        content: "";
+        background: $accent-color;
+        padding: 0;
+        height: 2px;
+        margin-top: 5px;
+        display: block;
+        width: 100%;
+    }
+    li{
+        cursor: pointer;
+    }
+
+}
+.row .col_4:nth-child(2){
+    ul {
+        display: grid;
+        /* flex-wrap: wrap; */
+        gap: 23px;
+        grid-template-columns: 37% 40%;
+    }
+}
+.social_div{
+    a{
+        display: unset;
+    }
+    img {
+        float: left;
+        margin-right: 13px;
+        width: 32px;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+
+    }
+    img:hover{
+        transform: scale(1.2);
+        transition: 0.2s ease-in-out;
+    }
+}

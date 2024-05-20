@@ -1,0 +1,78 @@
+@import "src/app/global.scss";
+
+.single-blog {
+  h1 {
+    font-size: 2rem;
+  }
+  padding-bottom: 50px;
+  .row {
+    display: flex;
+    column-gap: 30px;
+  }
+  .container {
+    margin-top: 2em;
+  }
+  .col_6 {
+    width: 65%;
+  }
+  .col_4 {
+    width: 35%;
+  }
+  .inner_block {
+    text-align: left;
+  }
+  a {
+    color: $accent-color;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+   h4 {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.2rem;
+    line-height: 1.7rem;
+    font-family: "Noto Sans Display", sans-serif;
+  }
+  .auth_info ul {
+    display: flex;
+    padding-left: 20px;
+    column-gap: 34px;
+  }
+  .breadcrub span.material-symbols-outlined {
+    font-size: 14px;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  ul.tag_list {
+    display: flex;
+    column-gap: 17px;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    row-gap: 17px;
+  }
+  ul.tag_list li {
+    padding: 4px 10px;
+    border-radius: 15px;
+    color: white;
+    background: $bg-dark-color;
+    font-size: 15px;
+  }
+  .hr {
+    padding: 0.1px;
+    background: $secondary-color;
+    margin: 3em 0px;
+  }
+  .experts {
+    padding: 16px;
+    font-family: "Ubuntu", sans-serif;
+    background: antiquewhite;
+    margin: 32px 0px;
+    border-radius: 6px;
+    font-size: 19px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+}

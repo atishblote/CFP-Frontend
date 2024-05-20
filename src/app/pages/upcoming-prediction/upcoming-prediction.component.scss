@@ -1,0 +1,118 @@
+@import 'src/app/global.scss'; 
+
+.row {
+    display: flex;
+    column-gap: 42px;
+    padding: 020px 0px;
+}
+.col_4{
+    width: 51%;
+}
+aside{
+    h4 {
+        font-size: 19px;
+        text-align: center;
+        color: #343434;
+        margin-top: 0px;
+    }
+    table{
+        text-align: left;
+        border-collapse: collapse;
+    }
+    table td {
+        font-size: 15px;
+        padding: 6px 0px;
+        vertical-align: top;
+    }
+    table tr td:first-child {
+        width: 76px;
+    }
+    .player_info{
+        padding: 6px;
+    }
+    .player_info table tr td:first-child {
+        width: 170px;
+    }
+    .player_info th, .player_info td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    .player_info th {
+        background-color: #f2f2f2;
+    }
+    .player_info tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .captain{
+        background-color: $success-color-light;
+        padding: 2px 7px;
+        border-radius: 50px;
+    }
+}
+.col_6 {
+    width: 100%;
+}
+
+.inner_block {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+.d_f {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+}
+.inner_block > div > div {
+    font-weight: 700;
+    color: #2c2929;
+    font-size: 17px;
+}
+.d_f > div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+span.vs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $secondary-color;
+    border-radius: 60px;
+    width: 50px;
+    height: 50px;
+    color: $danger-color;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.match_info p {
+    margin: 4px 0px;
+    color: gray;
+    font-size: 14px;
+}
+.match_info .status {
+    color: $danger-color;
+    margin-bottom: 12px;
+    margin-top: 28px;
+    font-size: 16px;
+}
+.match_info_head {
+    background: $accent-color;
+    padding: 11px;
+    color: white;
+    margin-bottom: 20px;
+}
+.match_info_head .row{padding: 0;}
+aside {
+    position: sticky;
+    top: 1px;
+}
+blockquote {
+    margin-top: 50px;
+    background: #ffe4c2;
+    padding: 17px;
+    border-radius: 9px;
+    text-align: center;
+}

@@ -1,0 +1,93 @@
+.plans {
+    .inner_plan {
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 48% 48%;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+    }
+    .plan_cards {
+        background-color: #faf7f3;
+        border: 1px solid #eeeeee;
+        /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+        padding: 2px;
+    }
+    .card_header {
+        font-family: "Ubuntu", sans-serif;
+        padding: 16px 0px;
+        color: white;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    .real_amount {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0px 5px;
+        font-family: "Ubuntu", sans-serif;
+    }
+    .cross_amount {
+        font-size: 1.2rem;
+        text-decoration: line-through;
+        color: gray;
+        font-family: "Ubuntu", sans-serif;
+    }
+    sup {
+        padding: 1px 5px;
+        background: #f1268b;
+        color: white;
+        border-radius: 10px;
+        font-size: 0.7rem;
+        font-family: "Ubuntu", sans-serif;
+    }
+    .amount {
+        padding: 39px 0px 14px 0px;
+    }
+    p {
+        font-size: 1.1rem;
+        font-family: "Ubuntu", sans-serif;
+    }
+    .card_footer {
+        padding: 26px 0px;
+    }
+    button.accent_btn {
+        font-size: 1rem;
+        padding: 9px 27px;
+    }
+
+
+}
+
+.box {
+    --border-size: 5px;
+    --border-angle: 0turn;
+    background-image: conic-gradient(
+        from var(--border-angle),
+        #213,
+        #112 50%,
+        #213
+      ),
+      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+    background-size: calc(100% - (var(--border-size) * 2))
+        calc(100% - (var(--border-size) * 2)),
+      cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  
+    animation: bg-spin 3s linear infinite;
+    @keyframes bg-spin {
+      to {
+        --border-angle: 1turn;
+      }
+    }
+  
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+  
+  @property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+  }

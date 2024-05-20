@@ -1,0 +1,97 @@
+<div class="login_page"
+    style="background-image: url('https://admin.cricfootbook.com/uploads/img_upload-1702726792375-611381836-winter.webp');">
+    <div class="inner_login">
+        <div class="row">
+            <div class="col_6">
+                <h2>Login</h2>
+                <form [formGroup]="myForm" (ngSubmit)="loginFun(myForm.value)">
+                    <div class="form__group field">
+                        <input type="input" class="form__field" placeholder="Email"  formControlName="email"/>
+                        <label for="name" class="form__label">Email</label>
+                    </div>
+                    <div class="form__group field">
+                        <input type="password" class="form__field" placeholder="Password" formControlName="password" />
+                        <label for="name" class="form__label">Password</label>
+                    </div>
+                    <div class="form-group">
+                        <button class="accent_btn" type="submit">Login</button>
+                    </div>
+                    <div class="after_link">
+                        <button type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col_6">
+                <h2>SignUp</h2>
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+                    <div class="row">
+                        <div class="form__group field">
+                            <input type="text" class="form__field"  formControlName="username">
+                            <label for="username" class="form__label">Username</label>
+                          </div>
+                        
+                          <div class="form__group field">
+                            <input type="email" class="form__field"  formControlName="email">
+                            <label for="email" class="form__label">Email</label>
+                          </div>
+                    </div>
+                    
+                     <div class="row">
+                        <div class="form__group field">
+                            <input type="text" class="form__field" formControlName="first_name">
+                            <label for="first_name" class="form__label">First Name</label>
+                          </div>
+                        
+                          <div class="form__group field">
+                            <input type="text" class="form__field" formControlName="last_name">
+                            <label for="last_name" class="form__label">Last Name</label>
+                          </div>
+                     </div>
+                    
+                     <div class="row">
+                        <div class="form__group field">
+                            <input [type]="passwordType" class="form__field"  formControlName="password" >
+                            <label for="password" class="form__label">Password</label>
+                          </div>
+                          <span (mouseover)="togglePasswordVisibility()" (mouseleave)="togglePasswordVisibilityHide()"  class="thumb material-symbols-outlined">
+                            visibility
+                            </span>
+                     </div>
+                    
+                     <div class="row" *ngIf="sentOtp; else elseBlock">
+                        <div class="form__group field">
+                            <input (keyup)="checknumber(numberOtp.value)" type="number" class="form__field"  formControlName="number"  #numberOtp >
+                            <label for="number" class="form__label">Number</label>
+                          </div>
+                          <span><button [disabled]="isDesable" type="button" (click)="sentOpt(numberOtp.value)" class="accent_btn otp">{{text}}</button></span>
+                      </div>
+
+                      <!-- varify otp -->
+                      <ng-template #elseBlock>
+                        <div class="row">
+                            <div class="form__group field">
+                                <input type="number" class="form__field" #otp>
+                                <label for="otp" class="form__label">Enter OTP</label>
+                              </div>
+                              <span><button type="button" (click)="checkOtp(otp.value)" class="accent_btn otp">Varify</button></span>
+                          </div>
+                      </ng-template>
+                      
+                      <div class="form__group field" style="display: flex;">
+                          <input style="width: 18px;margin-right: 14px;" type="checkbox" class="form__field" id="is_active"  formControlName="is_active" >
+                          <label for="is_active" style="color: white;">Phone number is correct?</label>
+                    </div>
+                      
+
+                    <div class="form-group">
+                        <button class="accent_btn" [disabled]="myForm.invalid" type="submit">Sign Up</button>
+                    </div>
+                    <div class="after_link">
+                        <button type="reset">Reset</button>
+                    </div>
+                    <p style="color: white;">{{message}}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

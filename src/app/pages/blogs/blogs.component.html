@@ -1,0 +1,42 @@
+<div class=blogs>
+    <div class="hero bg_image">
+        <img src="assets/img/previous-mach-result.jpg" alt="">
+        <!-- <h2>India vs Pakistan match 15 , 2023 Pune</h2> -->
+    </div>
+    <div class="container">
+        <div *ngIf="notLoaded; else elseBlock" class="progress_div">
+            <mat-progress-spinner class="example-margin" color="warn" mode="indeterminate" diameter="41">
+            </mat-progress-spinner>
+        </div>
+        <ng-template #elseBlock>
+            <div class="row p_50">
+                <div class="col_6">
+                    <h2>All Blogs</h2>
+                    <app-archived-blogs></app-archived-blogs>
+                </div>
+                <div class="col_4">
+                    <div class="side_bar_home">
+                        <div class="crick_score">
+                            <div class="category" style="margin-top: 20px;">
+                                <h5 class="side_title"><span class="material-symbols-outlined">
+                                        emoji_events
+                                    </span> Current Series</h5>
+                                <ul class="category_menu">
+                                    <li>ICC World Cup</li>
+                                    <li>Womens Big Bash League</li>
+                                    <li>NZ Women tour of SA</li>
+                                    <li>West indies Women tour of Australia</li>
+                                    <li>The Marsh Cup</li>
+                                </ul>
+                            </div>
+                        </div>
+                       <div style="padding-top:20px ;">
+                        <img width="100%" src="https://khel111.com/wp-content/uploads/2023/03/1st-copy-3-1.gif" alt="">
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        
+    </div>
+</div>

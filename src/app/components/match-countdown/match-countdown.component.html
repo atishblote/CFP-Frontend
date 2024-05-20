@@ -1,0 +1,9 @@
+<div class="countdown">
+    <p *ngIf="countdownValue > 0" class="countdown-text">
+      {{ formatCountdown(countdownValue) }}
+    </p>
+    <p *ngIf="countdownValue === 0" class="countdown-text">
+      Match is starting now!
+    </p>
+  </div>
+  

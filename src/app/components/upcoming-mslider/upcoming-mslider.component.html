@@ -1,0 +1,50 @@
+<!-- Conditional rendering based on the existence of resData?.code -->
+<h2 class="title">Next Predictions</h2>
+
+<!-- <div *ngIf="notLoaded; else elseBlock1" class="progress_div">
+    <mat-progress-spinner class="example-margin" color="warn" mode="indeterminate" diameter="41">
+    </mat-progress-spinner>
+</div> -->
+<!-- <ng-template #elseBlock1> -->
+    <div *ngIf="isData; else elseBlock">
+        
+        <!-- Owl Carousel for displaying upcoming predictions -->
+        <div class="owl-carousel owl-carousel-upcoming">
+            <!-- Iterating over predictions using *ngFor -->
+            <div *ngFor="let f of getFantacy" class="items">
+                <div class="card">
+                    <div class="card-header">
+                        <!-- Displaying date and time using slice pipe -->
+                        <span class="date">{{ f.date_time  | slice:0:-7 }}</span>
+                        <span class="date">{{ f.date_time | slice:-7 }}</span>
+                    </div>
+                    <div class="card-body">
+                        <!-- Displaying match countdown using a custom component -->
+                        <p class="text-brown">
+                            <app-match-countdown [matchStartTime]="f.time_stam"></app-match-countdown>
+                        </p>
+                        
+                        <div class="inner_body">
+                            <!-- Displaying team logos and abbreviations -->
+                            <span><img src="https://admin.cricfootbook.com/{{f.team_one.logo}}" alt=""><br>{{f.team_one.team_name}}</span>
+                            <span class="vs">Vs</span>
+                            <span><img src="https://admin.cricfootbook.com/{{f.team_two.logo}}" alt=""><br>{{f.team_two.team_name}}</span>
+                        </div>
+                        
+                        <!-- Displaying match name and a "BUY NOW" button -->
+                        <p class="status">{{ f.name }}</p>
+                        <button (click)="scrollToTop()" routerLink="upcoming-prediction/{{f._id}}" class="accent_btn">
+                            BUY NOW 
+                            <span class="material-symbols-outlined">sports_cricket</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template for the case when resData?.code does not exist -->
+    <ng-template #elseBlock>
+        <p>{{ message }}</p>
+    </ng-template>
+<!-- </ng-template> -->

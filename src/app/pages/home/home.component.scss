@@ -1,0 +1,37 @@
+@import 'src/app/global.scss';
+.ads_sections img{
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+// blog
+.blog_predictions_wrap {
+    display: grid;
+    grid-template-columns:63% 35%;
+    column-gap: 20px;
+}
+.row {
+    display: grid;
+    column-gap: 15px;
+    grid-template-columns: 40% 58%;
+}
+.col_5 {
+    width: 50%;
+}
+.blog_predictions_wrap img{
+    height: 100%;
+    width: -webkit-fill-available;
+    object-fit: cover;
+}
+p.expert {
+    margin-top: 0.5rem;
+    margin-bottom: 0.7rem;
+    font-size: 14px;
+}
+a{
+    font-family: "Ubuntu", sans-serif;
+    text-decoration: none;
+    color: #1a1b1d;
+    font-weight: 700;
+    font-size: 18px;
+}

@@ -1,0 +1,83 @@
+<div style="position: relative;">
+    <mat-tab-group animationDuration="500ms" (selectedTabChange)="tabChanged($event)">
+        <mat-tab color="red" label="TEST">
+            <div class="iner_table_div">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Rank</th>
+                            <th>Matches</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let team of rankings">
+                            <td>{{ team.rank }}</td>
+                            <td>{{ team.name }}</td>
+                            <td>{{ team.matches }}</td>
+                            <td>{{ team.rating }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table_footer">
+                    Last Update : {{ lastUpdates }}
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="ODI">
+            <div class="iner_table_div">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Rank</th>
+                            <th>Matches</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let team of rankings">
+                            <td>{{ team.rank }}</td>
+                            <td>{{ team.name }}</td>
+                            <td>{{ team.matches }}</td>
+                            <td>{{ team.rating }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table_footer">
+                    Last Update : {{ lastUpdates }}
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="T20">
+            <div class="iner_table_div">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Rank</th>
+                            <th>Matches</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let team of rankings">
+                            <td>{{ team.rank }}</td>
+                            <td>{{ team.name }}</td>
+                            <td>{{ team.matches }}</td>
+                            <td>{{ team.rating }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table_footer">
+                    Last Update : {{ lastUpdates }}
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+    <div *ngIf="notLoaded" class="progress_div">
+        <mat-progress-spinner class="example-margin" color="warn" mode="indeterminate" diameter="40">
+        </mat-progress-spinner>
+    </div>
+</div>

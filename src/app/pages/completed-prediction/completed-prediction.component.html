@@ -1,0 +1,316 @@
+<div class="complete_predictions" style="position: relative;">
+    <div class="hero bg_image">
+        <img src="assets/img/previous-mach-result.jpg" alt="">
+        <!-- <h2>India vs Pakistan match 15 , 2023 Pune</h2> -->
+    </div>
+    <div class="container">
+        <div *ngIf="notLoaded; else elseBlock" class="progress_div">
+            <mat-progress-spinner class="example-margin" color="warn" mode="indeterminate" diameter="41">
+            </mat-progress-spinner>
+        </div>
+        <ng-template #elseBlock>
+            <div class="row">
+                <div class="col_4 bg_border">
+                    <aside>
+                        <h5 class="side_title"><span class="material-symbols-outlined">
+                                military_tech
+                            </span> Upcoming Match</h5>
+                        <app-aside-next-prediction></app-aside-next-prediction>
+                    </aside>
+                </div>
+    
+                <div class="col_6 bg_border">
+                    <div class="match_info bg_light">
+                        <div class="inner_block">
+                            <div class="match_info_head">
+                                {{matchByidData.name}}
+                            </div>
+                            <div class="d_f">
+                                <div>
+                                    <div [ngSwitch]="matchByidData.team_two.country_code"> 
+                                        <div *ngSwitchCase="matchAllData?.scoreCard[0]?.batTeamDetails?.batTeamShortName">
+                                            <img width="67"
+                                            src="https://admin.cricfootbook.com/{{matchByidData?.team_two.logo}}"
+                                            alt="">
+                                            <div>{{matchAllData?.scoreCard[0]?.batTeamDetails?.batTeamShortName}}</div>
+                                            <div>{{matchAllData?.scoreCard[0]?.scoreDetails?.runs}}-{{matchAllData?.scoreCard[0]?.scoreDetails?.wickets}} / ({{matchAllData?.scoreCard[0]?.scoreDetails?.overs}})</div>
+                                        </div> 
+                                        <div *ngSwitchCase="matchAllData?.scoreCard[1]?.batTeamDetails?.batTeamShortName">
+                                            <img width="67"
+                                            src="https://admin.cricfootbook.com/{{matchByidData?.team_one.logo}}"
+                                            alt="">
+                                            <div>{{matchAllData?.scoreCard[1]?.batTeamDetails?.batTeamShortName}}</div>
+                                            <div>{{matchAllData?.scoreCard[1]?.scoreDetails?.runs}}-{{matchAllData?.scoreCard[1]?.scoreDetails?.wickets}} / ({{matchAllData?.scoreCard[1]?.scoreDetails?.overs}})</div>
+                                        </div> 
+                                    </div>
+                                    
+                                </div>
+                                <div>
+                                    <span class="vs">VS</span>
+                                </div>
+                                <div>
+
+                                    <div [ngSwitch]="matchByidData.team_one.country_code"> 
+                                        <div *ngSwitchCase="matchAllData?.scoreCard[0]?.batTeamDetails?.batTeamShortName">
+                                            <img width="67"
+                                            src="https://admin.cricfootbook.com/{{matchByidData?.team_one.logo}}"
+                                            alt="">
+                                            <div>{{matchAllData?.scoreCard[0]?.batTeamDetails?.batTeamShortName}}</div>
+                                            <div>{{matchAllData?.scoreCard[0]?.scoreDetails?.runs}}-{{matchAllData?.scoreCard[0]?.scoreDetails?.wickets}} / ({{matchAllData?.scoreCard[0]?.scoreDetails?.overs}})</div>
+        
+                                        </div> 
+                                        <div *ngSwitchCase="matchAllData?.scoreCard[1]?.batTeamDetails?.batTeamShortName">
+                                            <img width="67"
+                                            src="https://admin.cricfootbook.com/{{matchByidData?.team_one.logo}}"
+                                            alt="">
+                                            <div>{{matchAllData?.scoreCard[1]?.batTeamDetails?.batTeamShortName}}</div>
+                                            <div>{{matchAllData?.scoreCard[1]?.scoreDetails?.runs}}-{{matchAllData?.scoreCard[1]?.scoreDetails?.wickets}} / ({{matchAllData?.scoreCard[1]?.scoreDetails?.overs}})</div>
+
+                                        </div> 
+                                       
+                                      </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="match_info">
+                                <p class="status">{{matchAllData?.status}}</p>
+                                <p class="time">{{ matchByidData?.date_time }}</p>
+                                <p class="location">{{ matchByidData?.venues }}</p>
+                            </div>
+                        </div>
+    
+                        <br>
+    
+                        <div class="inner_block">
+                            <div class="match_info_head">
+                                TOSS
+                            </div>
+                            <div class="info_toss_winner">
+                                <h2 style="text-transform: uppercase;">{{matchAllData?.matchHeader?.tossResults?.tossWinnerName}} WILL WIN THE TOSS</h2>
+                                <div>
+                                    <img src="https://www.cricketbettingtipsprince.com/images/prediction/12724393931698229332australia.png"
+                                        alt="">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <br>
+    
+                        <div class="inner_block">
+                            <div class="match_info_head">
+                                WINNER
+                            </div>
+                            <div class="info_toss_winner">
+                                <h2 style="text-transform: uppercase;">{{ matchAllData?.matchHeader?.result?.winningTeam }} WILL WIN THE MATCH</h2>
+                                <div>
+                                    <img width="100%"
+                                        src="https://www.cricketbettingtipsprince.com/images/prediction/4803602021698229332Australia.jpg"
+                                        alt="">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <br><br>
+    
+                        <div class="row_cus">
+                            <div class="col">
+                                <h5 class="side_title"><span class="material-symbols-outlined">
+                                        backup_table
+                                    </span>Match Score</h5>
+    
+                                <mat-tab-group>
+                                    <mat-tab label="Team 1">
+                                        <div class="data_show">
+                                            <div class="match_info_head">
+                                                <div class="row">
+                                                    <div class="col_6">
+                                                        {{ scoreData?.[0]?.batTeamDetails?.batTeamName }}
+                                                    </div>
+                                                    <div class="col_6">
+                                                        {{ scoreData?.[0]?.scoreDetails?.runs }}-{{ scoreData?.[0]?.scoreDetails?.wickets }} ({{ scoreData?.[0]?.scoreDetails?.overs }} Ov)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th >Batting</th>
+                                                        <th>R</th>
+                                                        <th>B</th>
+                                                        <th>4s</th>
+                                                        <th>6s</th>
+                                                        <th>SR</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                    <tr *ngFor="let score of batsmen1">
+                                                        <td >{{ score?.batName }} <span style="color: gray;">({{ score?.outDesc }})</span></td>
+                                                        <td>{{ score?.runs}}</td>
+                                                        <td>{{ score?.balls}}</td>
+                                                        <td>{{ score?.fours}}</td>
+                                                        <td>{{ score?.sixes}}</td>
+                                                        <td>{{ score?.strikeRate}}</td>
+                                                        
+                                                    </tr>
+                                                </tbody>
+    
+                                            </table>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Extra</td>
+                                                        <td>{{ scoreData?.[0]?.extrasData?.total }} ( w {{ scoreData?.[0]?.extrasData?.wides }}, nb {{ scoreData?.[0]?.extrasData?.noBalls }} , p {{ scoreData?.[0]?.extrasData?.penalty }} , lb {{ scoreData?.[0]?.extrasData?.legByes }} )</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <br>
+                                        <div class="data_show match_info_head2">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th >Blowing</th>
+                                                        <th>O</th>
+                                                        <th>M</th>
+                                                        <th>R</th>
+                                                        <th>W</th>
+                                                        <th>NB</th>
+                                                        <th>WD</th>
+                                                        <th>ECO</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let score of bowlers1">
+                                                        <td>{{ score?.bowlName }}</td>
+                                                        <td>{{ score?.overs }}</td>
+                                                        <td>{{ score?.maidens }}</td>
+                                                        <td>{{ score?.runs }}</td>
+                                                        <td>{{ score?.wickets }}</td>
+                                                        <td>{{ score?.no_balls }}</td>
+                                                        <td>{{ score?.wides }}</td>
+                                                        <td>{{ score?.economy }}</td>
+                                                    </tr>
+                                                </tbody>
+    
+                                            </table>
+                                        </div>
+                                    </mat-tab>
+                                    <mat-tab label="Team 2">
+                                        <div class="data_show">
+                                            <div class="match_info_head">
+                                                <div class="row">
+                                                    <div class="col_6">
+                                                        {{ scoreData?.[1]?.batTeamDetails?.batTeamName }}
+                                                    </div>
+                                                    <div class="col_6">
+                                                        {{ scoreData?.[1]?.scoreDetails?.runs }}-{{ scoreData?.[1]?.scoreDetails?.wickets }} ({{ scoreData?.[1]?.scoreDetails?.overs }} Ov)                                                    </div>
+                                                </div>
+                                            </div>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Batting</th>
+                                                        <th>R</th>
+                                                        <th>B</th>
+                                                        <th>4s</th>
+                                                        <th>6s</th>
+                                                        <th>SR</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let score of batsmen2">
+                                                        <td >{{ score?.batName }} <span style="color: gray;">({{ score?.outDesc }})</span></td>
+                                                        <td>{{ score?.runs}}</td>
+                                                        <td>{{ score?.balls}}</td>
+                                                        <td>{{ score?.fours}}</td>
+                                                        <td>{{ score?.sixes}}</td>
+                                                        <td>{{ score?.strikeRate}}</td>
+                                                        
+                                                    </tr>
+                                                </tbody>
+    
+                                            </table>
+                                        </div>
+                                        <br>
+                                        <div class="data_show match_info_head2">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th >Blowing</th>
+                                                        <th>O</th>
+                                                        <th>M</th>
+                                                        <th>R</th>
+                                                        <th>W</th>
+                                                        <th>NB</th>
+                                                        <th>WD</th>
+                                                        <th>ECO</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let score of bowlers2">
+                                                        <td>{{ score?.bowlName }}</td>
+                                                        <td>{{ score?.overs }}</td>
+                                                        <td>{{ score?.maidens }}</td>
+                                                        <td>{{ score?.runs }}</td>
+                                                        <td>{{ score?.wickets }}</td>
+                                                        <td>{{ score?.no_balls }}</td>
+                                                        <td>{{ score?.wides }}</td>
+                                                        <td>{{ score?.economy }}</td>
+                                                    </tr>
+                                                </tbody>
+    
+                                            </table>
+                                        </div>
+                                    </mat-tab>
+                                </mat-tab-group>
+    
+                            </div>
+                            <br>
+                            <div class="col">
+                                <h5 class="side_title"><span class="material-symbols-outlined">
+                                        toc
+                                    </span> Commentry</h5>
+    
+                                    <div class="data_show">
+                                        <div *ngFor="let com of commentryData.slice(0, numEntriesToShow)" class="list">
+                                            <div class="batsman_info">
+                                                <span class="material-symbols-outlined">
+                                                    sports_cricket
+                                                </span> {{ com.batsman }}
+                                            </div>
+                                            <div class="commmentry_area">
+                                                <div>
+                                                    <span>
+                                                        Over {{ com.overs }} 
+                                                     </span>
+                                                     -
+                                                     <span>
+                                                         Run {{ com.runs }}
+                                                     </span>
+                                                </div>
+                                                <div class="desc">
+                                                    {{ com.commText }}
+                                                </div>
+                                            </div>
+                                            <div class="batsman_info">
+                                                <span class="material-symbols-outlined">
+                                                    sports_basketball
+                                                    </span> {{ com.bowler }}
+                                            </div>
+                                        </div>
+                                        <div class="readmore_div" style="text-align: center;">
+                                            <button class="accent_btn" (click)="showMore()">Load More</button>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        
+
+    </div>
+</div>

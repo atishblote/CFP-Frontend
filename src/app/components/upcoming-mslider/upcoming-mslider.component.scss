@@ -1,0 +1,58 @@
+@import 'src/app/global.scss'; 
+
+.card-body {
+    padding-bottom: 16px;
+}
+.card{
+    border: 1px solid #e1ebf547;
+    border-radius: 15px;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: white;
+    background-color: black;
+    padding: 15px 10px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.items {
+    border-radius: 15px;
+    background: #f8f8f8;
+}
+.inner_body {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding:0px 24px;
+    align-items: center;
+}
+span.vs {
+    height: 40px;
+    background: #dfe5e6;
+    border-radius: 50px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card img{
+    width: 58px;
+    margin: 0 auto;
+}
+p.text-brown {
+    text-align: center;
+    color: red;
+}
+.status {
+    color: gray;
+    text-align: center;
+    font-size: 14px;
+}
+span.more {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    color: #1976d2;
+}

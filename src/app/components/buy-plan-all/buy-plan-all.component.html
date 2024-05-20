@@ -1,0 +1,29 @@
+<div class="plans">
+    <div class="inner_plan">
+        <ng-container *ngFor="let p of  getfantacyData">
+            <div class="plan_cards" [ngClass]="{'box': p.is_prime}" >
+                <div style="background-color: white;">
+                    <div class="card_header" [ngStyle]="{'background-color': p.pack_color}">
+                        {{ p.name }}
+                    </div>
+                    <div class="card_body ">
+                        <div class="amount">
+                            <span class="cross_amount">₹{{ p.discounted_price }}</span>
+                            <span class="real_amount" [ngStyle]="{'color': p.pack_color}"> ₹{{ p.price }}</span>
+                            <sup>{{  p.offer}}</sup>
+                        </div>
+        
+                        <div class="details">
+                            <p>{{ p.services }}</p>
+                        </div>
+                    </div>
+                    <div class="card_footer">
+                            <button type="submit" (click)="buyPlanFun(p.price,p.name,p.services)" class="accent_btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+         
+
+    </div>
+</div>

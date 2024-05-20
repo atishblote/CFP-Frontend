@@ -1,0 +1,38 @@
+@import 'src/app/global.scss';
+
+
+
+h6 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  letter-spacing: 0;
+}
+.col_4 {
+  text-align: left;
+}
+.row {
+  display: flex;
+  column-gap: 30px;
+}
+.col_6 {
+  width: 65%;
+}
+.col_4 {
+  width: 35%;
+}
+h3 {
+  font-size: 1.5rem;
+}
+// .owl-nav {
+//     position: absolute;
+//     top: -58px;
+//     right: 0;
+// }
+// .owl-nav button span {
+//     padding: 5px 11px;
+//     font-size: 22px;
+//     margin: 1px;
+//     background: rgb(217, 217, 217);
+// }

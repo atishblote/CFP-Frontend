@@ -1,0 +1,33 @@
+<div>
+    <h5 class="side_title"><span class="material-symbols-outlined">
+        turn_right
+        </span> {{ fantacyData?.name }}</h5>
+    <div class="card 1">
+        <ng-container *ngIf="fantacyData != 'undefined'; else elseBlock ">
+            <div class="card-header">
+                <span class="date"> {{ fantacyData?.date_time }}</span>
+                <!-- <span>{{ fantacyData?.time_stam }}</span> -->
+            </div>
+            <div class="card-body">
+                <p class=" text-brown"><app-match-countdown
+                        [matchStartTime]="fantacyData?.time_stam"></app-match-countdown> </p>
+                <div class="inner_body">
+                    <span> <img src="https://admin.cricfootbook.com/{{ fantacyData?.team_one?.logo }}" alt=""><br> {{
+                        fantacyData?.team_one?.team_name }}</span>
+                    <span class="vs">Vs</span>
+                    <span> <img src="https://admin.cricfootbook.com/{{ fantacyData?.team_two?.logo }}" alt=""> <br> {{
+                        fantacyData?.team_two?.team_name }} </span>
+                </div>
+                <p class="status">{{  fantacyData?.venues }}</p>
+                <button (click)="scrollToTop()" routerLink="../../upcoming-prediction/{{fantacyData?._id}}" class="accent_btn">BUY NOW <span
+                        class="material-symbols-outlined">
+                        sports_cricket
+                    </span></button>
+            </div>
+        </ng-container>
+        <ng-template #elseBlock>
+            <p>No Fantacy Available</p>
+        </ng-template>
+
+    </div>
+</div>

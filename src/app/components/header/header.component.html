@@ -1,0 +1,46 @@
+<header>
+    <div class="inner_header container_two d_flex">
+        <div class="col_3" class="logo border_right"  routerLink="/"><img src="assets/logo.svg" alt="logo"></div>
+        <div class="col_5">
+            <div *ngIf="isAuthenticated; else signInButton">
+                <span>Welcome, {{ fullName }}!</span>
+                <button (click)="signOut()">Sign Out</button>
+              </div>
+              <ng-template #signInButton>
+                <button routerLink="login" class="primary_btn">Sign In</button>
+              </ng-template>
+            <button class="search">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+            <span class="bor"></span>
+        </div>
+        <div class="col_2">
+            <button class="menu_bar">
+                <span class="material-symbols-outlined">
+                    menu
+                    </span>
+            </button>
+        </div>
+    </div>
+   
+</header>
+<section style="background-color: rgb(51, 51, 51);">
+    <div class="second_header container_two">
+        <div class="col_9">
+            <ul class="menu">
+                <li routerLink="live-score" class="items-menu">Live Scores</li>
+                <li routerLink="blogs" class="items-menu">Cricket News</li>
+                <li class="items-menu">ODI World Cup</li>
+                <li class="items-menu">Fantasy Tips</li>
+                <li class="items-menu">Match Predictions</li>
+                <li class="items-menu">Cric Stories</li>
+                <li class="items-menu">ODI</li>
+                <li class="items-menu">Latest News</li>
+                <li class="items-menu">Fixtures</li>
+              </ul>
+        </div>
+        <div class="col">
+            <span style="color: gray; cursor: pointer;" class="material-symbols-outlined">menu_open</span>
+        </div>
+    </div>
+</section>

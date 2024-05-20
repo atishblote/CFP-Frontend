@@ -1,0 +1,80 @@
+<div class="single-blog">
+    <div class="hero bg_image">
+        <img src="assets/img/previous-mach-result.jpg" alt="">
+        <!-- <h2>India vs Pakistan match 15 , 2023 Pune</h2> -->
+    </div>
+    <div class="container">
+        <div *ngIf="notLoaded; else elseBlock" class="progress_div">
+            <mat-progress-spinner class="example-margin" color="warn" mode="indeterminate" diameter="41">
+            </mat-progress-spinner>
+        </div>
+        <ng-template #elseBlock>
+        <div class="row">
+            <div class="col_6 bg_border">
+                <div class="inner_block">
+                    <div>
+                        <div class="breadcrub">
+                            <a href="#">Home</a><span class="material-symbols-outlined">
+                                arrow_forward_ios
+                            </span> {{ getSingleData?.slug }}
+                        </div>
+                        <h1>{{getSingleData?.title}}</h1>
+                        <div class="auth_info">
+                            <ul>
+                                <li>By <a href="">{{ getSingleData?.author_id.first_name }}</a></li>
+                                <li>{{ getSingleData?.date }}</li>
+                            </ul>
+                        </div>
+                        <div class="media">
+                            <img width="100%" src="https://admin.cricfootbook.com/{{getSingleData?.featured_id?.large_media}}" alt="">
+                        </div>
+                        <div class="experts">
+                            <em>
+                                {{ getSingleData?.except }}
+                            </em>
+                        </div>
+                        <div class="ads">
+                            <img src="assets/img/Screenshot_8.png" width="100%" alt="">
+                        </div>
+                        
+                        <div class="description" [innerHtml]="getSafeHtml(getSingleData?.description)">
+                        </div>
+                        <div class="hr"></div>
+                        <div class="tags">
+                            <h3>Tags :</h3>
+                            <ul class="tag_list">
+                                <li *ngFor="let t of getSingleData?.tags">{{ t.name }}</li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <app-related-post [data]="parentData"></app-related-post>
+            </div>
+            <div class="col_4 bg_border">
+                <div class="side_bar_home">
+                    <app-aside-one-prediction [matchData]="dataPut"></app-aside-one-prediction>
+                    <div class="">
+                        <div class="crick_score">
+                            <div class="category" style="margin-top: 20px;">
+                                <h5 class="side_title"><span class="material-symbols-outlined">
+                                        emoji_events
+                                    </span> Current Series</h5>
+                                <ul class="category_menu">
+                                    <li>ICC World Cup</li>
+                                    <li>Womens Big Bash League</li>
+                                    <li>NZ Women tour of SA</li>
+                                    <li>West indies Women tour of Australia</li>
+                                    <li>The Marsh Cup</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </ng-template>
+    </div>
+</div>
